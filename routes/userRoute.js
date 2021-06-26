@@ -29,9 +29,14 @@ router.post(
         errors: errors.array(),
       });
     }
+    // encrypting the password
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(req.body.password, salt);
+    console.log(hashedPassword);
     return res.status(200).json({
       status: true,
       data: req.body,
+      hashedPassword: hashedPassword,
     });
   }
 );
