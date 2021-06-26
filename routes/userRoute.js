@@ -1,6 +1,7 @@
 //include library
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
+const e = require("express");
 const { check, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
@@ -30,6 +31,7 @@ router.post(
       return res.status(400).json({
         status: false,
         errors: errors.array(),
+        message: "Form validation error",
       });
     }
 
@@ -74,6 +76,66 @@ router.post(
         return res.status(409).json({
           status: false,
           error: error,
+        });
+      });
+  }
+);
+// user login route
+// Access public
+// url :http://localhost:5000/api/users/login
+router.post(
+  "/login",
+  [
+    // check empty fields
+    //check email
+    check("email").isEmail().normalizeEmail().withMessage(""),
+    check("password").not().isEmpty().trim().escape(),
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+
+    // check error is not empty
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        status: false,
+        errors: errors.array(),
+        message: "Form validation error",
+      });
+    }
+
+    // check email already exists or not
+    User.findOne({ email: req.body.email })
+      .then((user) => {
+        //if user does not exist
+        if (!user) {
+          return res.status(404).json({
+            status: false,
+            message: "user does not exist",
+          });
+        } else {
+          // match user password
+          let isPasswordMatch = bcrypt.compareSync(
+            req.body.password,
+            user.password
+          );
+          // check is not  password match
+          if (!isPasswordMatch) {
+            return res.status(401).json({
+              status: false,
+              message: "Email and password does not match",
+            });
+          }
+          return res.status(200).json({
+            status: true,
+            message: "User Login Successfully",
+          });
+        }
+      })
+      // if login successfully
+      .catch((err) => {
+        return res.status(502).json({
+          status: flase,
+          message: "Databse error..",
         });
       });
   }
