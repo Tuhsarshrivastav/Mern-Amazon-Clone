@@ -1,13 +1,15 @@
 //Library include
 require("dotenv").config();
-
 const express = require("express");
 const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 5000;
-const database = require("./config/database");
+const ConnectDb = require("./config/database");
 
+
+//Connected with DB
+ConnectDb();
 //users routes
 const userRoute = require("./routes/userRoute");
 

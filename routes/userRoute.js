@@ -5,7 +5,7 @@ const { check, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
 
-const User = require("../config/database");
+const User = require("../models/User");
 const Token_Key = process.env.Token;
 
 // user reister route
@@ -22,6 +22,7 @@ router.post(
   ],
   (req, res) => {
     const errors = validationResult(req);
+    
     // check error is not empty
     if (!errors.isEmpty()) {
       return res.status(400).json({
@@ -29,15 +30,51 @@ router.post(
         errors: errors.array(),
       });
     }
-    // encrypting the password
-    const salt = bcrypt.genSaltSync(10);
-    const hashedPassword = bcrypt.hashSync(req.body.password, salt);
-    console.log(hashedPassword);
-    return res.status(200).json({
-      status: true,
-      data: req.body,
-      hashedPassword: hashedPassword,
-    });
+
+    // check email already exists or not
+    User.findOne({ email: req.body.email })
+      .then((user) => {
+        if (user) {
+          return res.status(409).json({
+            status: false,
+            message: "User already exists",
+          });
+        } else {
+
+          // encrypting the password
+          const salt = bcrypt.genSaltSync(10);
+          const hashedPassword = bcrypt.hashSync(req.body.password, salt);
+
+          //Create new object from userModel
+          const newUser = new User({
+            email: req.body.email,
+            username: req.body.username,
+            password: hashedPassword,
+          });
+
+          // Saving the user into database
+          newUser
+            .save()
+            .then((result) => {
+              return res.status(200).json({
+                status: true,
+                user: result,
+              });
+            })
+            .catch((error) => {
+              return res.status(502).json({
+                status: false,
+                error: error,
+              });
+            });
+        }
+      })
+      .catch((error) => {
+        return res.status(409).json({
+          status: false,
+          error: error,
+        });
+      });
   }
 );
 module.exports = router;

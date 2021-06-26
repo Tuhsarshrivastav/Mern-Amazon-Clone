@@ -3,18 +3,17 @@ const mongoose = require("mongoose");
 const assert = require("assert");
 
 //Establish Database Connection
-mongoose.connect(
-  process.env.DB,
-  {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useFindAndModify: true,
-    useUnifiedTopology: true,
-  },
-  (error, link) => {
-    // checking the database connection error
-    assert.strictEqual(error, null, "Db Connect Fail...");
-    //Database connect success
-    console.log(link, "Database Connected Successfully");
+const ConnectDb = async () => {
+  try {
+    const response = await mongoose.connect(process.env.DB, {
+      useCreateIndex: true,
+      useNewUrlParser: true,
+      useFindAndModify: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Database is Connnected");
+  } catch (error) {
+    console.log(error.message);
   }
-);
+};
+module.exports = ConnectDb;
