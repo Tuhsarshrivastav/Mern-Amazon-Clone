@@ -8,6 +8,8 @@ const moment = require("moment");
 const User = require("../models/User");
 const Token_Key = process.env.Token;
 
+const storage = require("./strorage");
+
 // user reister route
 // Access public
 // url :http://localhost:5000/api/users/register
@@ -22,7 +24,7 @@ router.post(
   ],
   (req, res) => {
     const errors = validationResult(req);
-    
+
     // check error is not empty
     if (!errors.isEmpty()) {
       return res.status(400).json({
@@ -40,7 +42,6 @@ router.post(
             message: "User already exists",
           });
         } else {
-
           // encrypting the password
           const salt = bcrypt.genSaltSync(10);
           const hashedPassword = bcrypt.hashSync(req.body.password, salt);
@@ -77,4 +78,26 @@ router.post(
       });
   }
 );
+// user uploadProfilePic route
+// Access public
+// url :http://localhost:5000/api/users/uploadProfilePic
+router.post("/uploadProfilePic", (req, res) => {
+  let upload = storage.getProfilePicUpload();
+
+  upload(req, res, (error) => {
+    if (error) {
+      return res.status(400).json({
+        status: false,
+        error: error,
+        message: "File upload failed",
+      });
+    } else {
+      return res.status(200).json({
+        status: true,
+        error: error,
+        message: "File upload success",
+      });
+    }
+  });
+});
 module.exports = router;
