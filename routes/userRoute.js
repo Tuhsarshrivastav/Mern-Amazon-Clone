@@ -9,6 +9,8 @@ const moment = require("moment");
 const User = require("../models/User");
 const Token_Key = process.env.Token;
 
+const verifyToken = require("./../middleware/verify_token");
+
 const storage = require("./strorage");
 
 // user reister route
