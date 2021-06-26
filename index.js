@@ -6,17 +6,19 @@ const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 5000;
-const database  = require('./config/database')
+const database = require("./config/database");
+
+//users routes
+const userRoute = require("./routes/users");
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
-//Route
-app.get("/", (req, res) => {
-  return res.status(200).json({ status: true,"message":"Amazon clone home page" });
-});
+//Route Middlewares
+app.use("/api/users/", userRoute);
 
 //Server Listen
 app.listen(PORT, () => {
