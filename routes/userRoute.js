@@ -125,9 +125,22 @@ router.post(
               message: "Email and password does not match",
             });
           }
+          // JSON Web Token Generate
+          let token = jwt.sign(
+            {
+              id: user._id,
+              email: user.email,
+            },
+            Token_Key,
+            {
+              expiresIn: 3600,
+            }
+          );
           return res.status(200).json({
             status: true,
             message: "User Login Successfully",
+            token: token,
+            user: user,
           });
         }
       })
