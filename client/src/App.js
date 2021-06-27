@@ -1,8 +1,8 @@
-import Navbar from "./components/Layout/NavbarContainer";
+import LandingPage from "./components/Layout/LandingPage";
 function App() {
   return (
-    <div className="App">
-      <Navbar />
+    <div>
+      <LandingPage />
     </div>
   );
 }
