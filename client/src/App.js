@@ -1,7 +1,8 @@
+import Navbar from "./components/Layout/NavbarContainer";
 function App() {
   return (
     <div className="App">
-      <h1>Amazon clone</h1>
+      <Navbar />
     </div>
   );
 }
