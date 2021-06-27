@@ -1,5 +1,6 @@
 import Navbar from "./NavbarContainer";
 import ImageSlider from "./ImageSlider";
+import HomePageContainer from "../HomePageProduct/HomePageContainer";
 const LandingPage = () => {
   return (
     <>
@@ -7,6 +8,7 @@ const LandingPage = () => {
       <div className="container-fluid px-0">
         <ImageSlider />
       </div>
+      <HomePageContainer/>
     </>
   );
 };
