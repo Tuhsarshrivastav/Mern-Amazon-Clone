@@ -4,7 +4,7 @@ function NavbarView(props) {
   return (
     <>
       {/* <!-- Navbar Starts --> */}
-      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+      <nav id="pageTop" className="navbar navbar-expand-md navbar-dark bg-dark">
         {/* <!-- Drawer Start --> */}
         <button
           className="btn btn-outline-light"
