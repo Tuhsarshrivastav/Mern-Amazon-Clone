@@ -1,8 +1,8 @@
 import React from "react";
 
 function NavbarView(props) {
-  const { t, i18n } = props;
-  console.log(t('navbar.sidebar_title'));
+  const { t, i18n, rtl } = props;
+  console.log(rtl);
   return (
     <>
       {/* <!-- Navbar Starts --> */}
@@ -29,13 +29,17 @@ function NavbarView(props) {
             role="document"
           >
             <div className="drawer-header bg-dark text-white">
-              <h4 className="drawer-title mx-auto" id="drawer-demo-title">
+              <h4
+                className={`drawer-title mx-auto ${rtl}`}
+                id="drawer-demo-title"
+              >
                 <i className="fas fa-user-circle"></i>
-                Hello, Sign In
+                {t("navbar.sidebar_title")}
               </h4>
             </div>
             <div className="drawer-body">
-              <h6 className="text-muted text-uppercase">Help & Settings</h6>
+              {t("navbar.sidebar_help_title")}
+              <h6 className={`text-muted text-uppercase${rtl}`}></h6>
               <a
                 href="your_account.html"
                 className="btn btn-outline-success my-2 btn-sm"
@@ -167,8 +171,9 @@ function NavbarView(props) {
                       type="radio"
                       name="prefLang"
                       id="englishLang"
-                      value="english"
-                      checked
+                      value="en"
+                      checked={props.prefLang == "en" ? true : false}
+                      onClick={props.handleChangeLang}
                     />
                     <label
                       className="custom-control-label"
@@ -189,8 +194,9 @@ function NavbarView(props) {
                       type="radio"
                       name="prefLang"
                       id="hindiLang"
-                      value="hindi"
-                      checked
+                      value="in"
+                      checked={props.prefLang == "in" ? true : false}
+                      onClick={props.handleChangeLang}
                     />
                     <label className="custom-control-label" htmlFor="hindiLang">
                       <img
@@ -208,8 +214,9 @@ function NavbarView(props) {
                       type="radio"
                       name="prefLang"
                       id="urduLang"
-                      value="urdu"
-                      checked
+                      value="pk"
+                      checked={props.prefLang == "pk" ? true : false}
+                      onClick={props.handleChangeLang}
                     />
                     <label className="custom-control-label" htmlFor="urduLang">
                       <img
@@ -227,8 +234,9 @@ function NavbarView(props) {
                       type="radio"
                       name="prefLang"
                       id="banglaLang"
-                      value="bangla"
-                      checked
+                      value="bd"
+                      checked={props.prefLang == "bd" ? true : false}
+                      onClick={props.handleChangeLang}
                     />
                     <label
                       className="custom-control-label"

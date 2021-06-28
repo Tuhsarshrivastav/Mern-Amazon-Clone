@@ -1,0 +1,171 @@
+{
+  "navbar": {
+    "sidebar_title": "Hello, {{ username }}",
+    "sidebar_help_title": "Help & Settings",
+    "btn_account_title": "Your Account",
+    "btn_signin_title": "Sign in",
+    "menu_signin_btn_title": "Signin",
+    "menu_signin_sub_title": "New customer",
+    "menu_signing_register_text": "Start here",
+    "product_category": {
+      "all": "All",
+      "smartphone": "Smartphone",
+      "kitchen_hardware": "Kitchen Hardware",
+      "prime_deal": "Prime Deals",
+      "book": "Book"
+    },
+    "register": "Register here.",
+    "logout": "Logout"
+  },
+  "footer": {
+    "back_to_top": "Back to Top",
+    "upper": {
+      "col1": {
+        "title": "Get to know us",
+        "about": "About",
+        "career": "Career",
+        "press_release": "Press Release",
+        "investment": "Investment",
+        "offers": "Offers"
+      },
+      "col2": {
+        "title": "Connect With Us",
+        "facebook": "Facebook",
+        "twitter": "Twitter",
+        "instagram": "Instagram"
+      },
+      "col3": {
+        "title": "Make Money With Us",
+        "amazon_seller": "Sell on Amazon",
+        "affiliate_marketing": "Affiliate Marketing",
+        "fullfilment_center": "Fullfilment Center",
+        "advertise": "Advertise Your Product",
+        "amazon_pay": "Amazon Pay"
+      },
+      "col4": {
+        "title": "Let Us Help You",
+        "covid": "COVID 19",
+        "your_account": "Your Account",
+        "returns": "Returns",
+        "funding": "Funding",
+        "help": "Help"
+      }
+    },
+    "ending_title": "Amazon.com Inc."
+  },
+  "login": {
+    "title": "Login",
+    "lbl_email": "Email:",
+    "lbl_password": "Password:",
+    "email_info": "We'll never share your email with anyone else.",
+    "password_info": "Password must be at least 6 characters.",
+    "btn_signin": "Sign In",
+    "seperator_text": "New to Amazon?",
+    "btn_register_text": "Create your Amazon account",
+    "btn_login_google": "Sign in with Google",
+    "btn_login_facebook": "Sign in with Facebook"
+  },
+  "validation": {
+    "username_empty": "Username cannot be empty.",
+    "password_empty": "Password cannot be empty.",
+    "password2_empty": "Re-type Password cannot be empty.",
+    "invalid_email" : "Enter a valid email.",
+    "password2_not_same": "Re-type password is not same as password.",
+    "email_exists": "Email already exists",
+    "db_error" : "Some problem in database",
+    "profile_pic_empty": "Select a profile pic.",
+    "email_not_exists": "Email not exists.",
+    "password_not_match": "Password not match in database.",
+    "oldPassword_not_match": "Old password not match in database.",
+    "profile_pic_error": "Some error in profile pic."
+
+  },
+  "register": {
+    "title": "Register",
+    "lbl_name": "Your name: ",
+    "lbl_email": "Email: ",
+    "lbl_pass1": "Password: ",
+    "lbl_pass2": "Password again: ",
+    "email_info": "We'll never share your email with anyone else.",
+    "password_info": "Password must be at least 6 characters.",
+    "password2_info": "Password must match the above.",
+    "btn_signin_text": "Sign In",
+    "seperator_text": "OR",
+    "btn_login_google": "Sign in with Google",
+    "btn_login_facebook": "Sign in with Facebook",
+    "btn_register": "Register",
+    "have_account_text": "Already have an account?"
+  },
+  "your_account": {
+    "title":"Your Account",
+    "btn1": {
+      "title": "Your Orders",
+      "sub_title": "Track, return or buy things again."
+    },
+    "btn2": {
+      "title": "Password Change",
+      "sub_title": "Change your password."
+    },
+    "btn3": {
+      "title": "Your Addresses",
+      "sub_title": "Edit addresses for orders."
+    },
+    "btn4": {
+      "title": "Seller Account",
+      "sub_title": "Sell your products."
+    }
+  },
+  "password_change": {
+    "title": "Change Password",
+    "lbl_txt_username": "Your Name: ",
+    "lbl_txt_old_password": "Old Password: ",
+    "lbl_txt_new_password": "New Password: ",
+    "lbl_txt_new_password2": "Re-Type New Password: ",
+    "info_txt_new_password": "Password must be at least 6 characters.",
+    "info_txt_new_password2": "Re-Type new password.",
+    "btn_txt_submit": "Update",
+    "breadcrumb": {
+      "link1": "Your Account",
+      "link2": "Change Password"
+    },
+    "profile_pic": {
+      "lbl_txt": "Select New Profile Pic.",
+      "btn_txt_submit": "Upload"
+    }
+  },
+  "seller_intro": {
+    "heading": "\"Since last 6 years my friends wealth increased by 3000%, thanks to selling of BSNL, LIC, AIR India & etc on Amazon.\"",
+    "author": {
+      "name": "Narendra Modi, ",
+      "role": "PMO India",
+      "job": "(Amazon Seller)"
+    },
+    "btn_txt": "Start selling",
+    "sub_title": "It only takes 15 minutes to setup your account",
+    "question_txt": "Why sell on Amazon?",
+    "row": {
+      "col1": {
+        "title": "E-Commerce: Your next big sales channel",
+        "content": "Start selling on Amazon - without building a website. Register now to start selling on Amazon.in."
+      },
+      "col2": {
+        "title": "Reach crores of customers",
+        "content": "Sell to crores of engaged customer visiting Amazon.in on desktop and through our mobile app."
+      },
+      "col3": {
+        "title": "Receive timely payments",
+        "content": "Amazon ensures your payments for your delivered orders are deposited directly in your bank account every 7 days."
+      }
+    }
+  },
+  "success": {
+    "password_change": {
+      "title": "Status",
+      "message": "Password change successfully."
+    },
+    "update_profile_pic": {
+      "title": "Status",
+      "message": "Profile pic updated successfully."
+    }
+  }
+}
