@@ -1,6 +1,8 @@
 import React from "react";
 
 function NavbarView(props) {
+  const { t, i18n } = props;
+  console.log(t('navbar.sidebar_title'));
   return (
     <>
       {/* <!-- Navbar Starts --> */}

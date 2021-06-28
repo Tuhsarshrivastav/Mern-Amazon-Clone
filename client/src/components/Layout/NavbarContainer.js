@@ -10,7 +10,7 @@ export class NavbarContainer extends Component {
   render() {
     return (
       <div>
-        <NavbarView />
+        <NavbarView {...this.props} />
       </div>
     );
   }
